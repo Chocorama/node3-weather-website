@@ -5,7 +5,7 @@ const forecast = (lat, long, callback) => {
 
   request({ url, json: true }, (error, response) => {
     const { current } = response.body;
-
+    console.log(current);
     if (error) {
       callback('Unable to connect to network or online service', undefined);
     } else if (response.body.error) {
@@ -16,7 +16,7 @@ const forecast = (lat, long, callback) => {
     } else {
       callback(
         undefined,
-        `It is currently ${current.temperature} degrees out and ${current.weather_descriptions[0]}. It feels like ${current.feelslike} degrees out`
+        `It is currently ${current.temperature} degrees out in the feather zone and ${current.weather_descriptions[0]}. It feels like ${current.feelslike} degrees out and too hot for goating around`
       );
     }
   });
